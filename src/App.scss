@@ -28,6 +28,10 @@ $navbarHeight: 100px;
     color: $fontColor--1;
 }
 
+body {
+    background-color: $color--1;
+}
+
 .App {
     box-sizing: border-box;
     height: 100vh;
