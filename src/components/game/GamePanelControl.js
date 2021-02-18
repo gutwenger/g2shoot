@@ -12,7 +12,7 @@ const GamePanelControl = ({ changePage, setTopPage }) => {
         woodworks: (
             <div className="gamePanelControl__step">
                 <p className="gamePanelControl__step__number">1</p>
-                <p className="gamePanelControl__step__p">CLICK WOODWORKS TO REVEAL</p>
+                <p className="gamePanelControl__step__p">CLICK TO GET YOUR WOODWORKS</p>
             </div>
         ),
         bet: (
@@ -26,7 +26,7 @@ const GamePanelControl = ({ changePage, setTopPage }) => {
         ball: (
             <div className="gamePanelControl__step">
                 <p className="gamePanelControl__step__number">3</p>
-                <p className="gamePanelControl__step__p">CLICK BALL TO REVEAL</p>
+                <p className="gamePanelControl__step__p">CLICK TO GET YOUR BALL</p>
             </div>
         ),
         result: (
