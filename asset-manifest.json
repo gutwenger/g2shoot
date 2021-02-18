@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/g2shoot/static/css/main.53494912.chunk.css",
+    "main.js": "/g2shoot/static/js/main.1680ebea.chunk.js",
+    "main.js.map": "/g2shoot/static/js/main.1680ebea.chunk.js.map",
+    "runtime-main.js": "/g2shoot/static/js/runtime-main.92225638.js",
+    "runtime-main.js.map": "/g2shoot/static/js/runtime-main.92225638.js.map",
+    "static/js/2.7851e0ee.chunk.js": "/g2shoot/static/js/2.7851e0ee.chunk.js",
+    "static/js/2.7851e0ee.chunk.js.map": "/g2shoot/static/js/2.7851e0ee.chunk.js.map",
+    "index.html": "/g2shoot/index.html",
+    "static/css/main.53494912.chunk.css.map": "/g2shoot/static/css/main.53494912.chunk.css.map",
+    "static/js/2.7851e0ee.chunk.js.LICENSE.txt": "/g2shoot/static/js/2.7851e0ee.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92225638.js",
+    "static/js/2.7851e0ee.chunk.js",
+    "static/css/main.53494912.chunk.css",
+    "static/js/main.1680ebea.chunk.js"
+  ]
+}
