@@ -24,8 +24,7 @@ const ResultButton = ({ changePage, setTopPage, setNavIsOpen }) => {
     function handleEndGame() {
         // If the game is still active, redirect to EndGame to ask player again
         if (nextRound) {
-            changePage("endgame");
-            setTopPage("default");
+            setTopPage("endgame");
             setNavIsOpen(false);
         // If game over
         } else {

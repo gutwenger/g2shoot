@@ -476,7 +476,10 @@ body {
                     height: fit-content;
                     width: 300px;
                     padding: 10px;
-                    border: 3px solid $fontColor--1;
+                    border-radius: 5px;
+                    border: 1px solid $fontColor--1;
+                    background-color: $fontColor--1;
+                    color: $color--1;
                     font-size: 20px;
                     font-weight: 700;
                     text-align: center;
