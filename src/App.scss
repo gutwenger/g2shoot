@@ -1,0 +1,853 @@
+$color--1: #ff33a0;
+$fontColor--1: white;
+$font--1: 'Rubik', sans-serif;
+$font--2: 'Roboto', sans-serif;
+$font--3: 'Josefin Sans', sans-serif;
+
+$navbarHeight: 100px;
+
+@mixin flexCenterColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $color--1;
+    font-family: $font--1;
+    color: $fontColor--1;
+}
+
+.App {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    @include flexCenter;
+}
+
+*::-webkit-scrollbar, .App::-webkit-scrollbar, .content::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $navbarHeight;
+    width: 100%;
+    @include flexCenter;
+    
+    .navLogo {
+        .navLogo__h1 {
+            font-size: 50px;
+            font-weight: 300;
+            letter-spacing: -3px;
+        }
+    }
+
+    .navMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1000;
+
+        .navMenu__ul {
+            @include flexCenterColumn;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+
+            .navMenu__ul__li {
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                font-size: 30px;
+                font-weight: 300;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .navbarBtn {
+        outline: none;
+        box-sizing: border-box;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        height: 50px;
+        width: 50px;
+        border-radius: 100px;
+        border: 3px solid $fontColor--1;
+        z-index: 1000;
+        cursor: pointer;
+
+        .navbarBtn__i {
+            font-size: 30px;
+            background-color: transparent;
+        }
+    }
+
+    .navbarBtn:hover {
+        background-color: $fontColor--1;
+        
+        .navbarBtn__i {
+            color: $color--1;
+        }
+    }
+}
+
+.result {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    width: 100%;
+    max-width: 1000%;
+    display: grid;
+    grid-template-rows: 200px 1fr 120px;
+
+    .resultGame {
+        @include flexCenterColumn;
+        box-sizing: border-box;
+
+        .resultGame__i {
+            margin: 15px 0;
+            font-size: 50px;
+        }
+
+        .resultGame__h1 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 25px;
+            font-weight: 300;
+        }
+
+        .resultGameCon {
+            box-sizing: border-box;
+            height: 100px;
+            width: 100%;
+            padding: 10px 15px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            grid-gap: 25px;
+
+            .resultGameCard {
+                box-sizing: border-box;
+                text-align: center;
+                display: grid;
+                grid-template-rows: 33px 1fr;
+
+                .resultGameCard__title {
+                    @include flexCenter;
+                    box-sizing: border-box;
+                    padding: 0 15px;
+                    font-size: 13px;
+                }
+
+                .resultGameCard__data {
+                    margin-top: 5px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .resultPlayers {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 50px 1fr;
+        align-items: center;
+
+        .resultPlayers__h1 {
+            box-sizing: border-box;
+            font-size: 25px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .resultPlayerTitle {
+            box-sizing: border-box;
+            height: 80px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+
+            .resultPlayerCard__title {
+                @include flexCenterColumn;
+                height: 50px;
+                width: 100%;
+                margin: 15px 0;
+
+                .resultPlayerCard__title__i {
+                    font-size: 25px;
+                }
+
+                .resultPlayerCard__title__p {
+                    margin-top: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .resultPlayersCon {
+            box-sizing: border-box;
+            height: calc(100vh - 550px);
+            width: 100%;
+            overflow-y: scroll;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+
+            .resultPlayerCard {
+                box-sizing: border-box;
+                height: fit-content;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: center;
+
+                .resultPlayerCard__title {
+                    @include flexCenterColumn;
+                    position: sticky;
+                    height: 50px;
+                    width: 100%;
+                    margin: 15px 0;
+
+                    .resultPlayerCard__title__i {
+                        font-size: 25px;
+                    }
+
+                    .resultPlayerCard__title__p {
+                        margin-top: 5px;
+                        font-size: 13px;
+                    }
+                }
+
+                .resultPlayerCard__player, .resultPlayerCard__balance {
+                    text-align: center;
+                }
+
+                .resultPlayerCard__stats__symbol {
+                    margin: 0 5px;
+                }
+
+                .resultPlayerCard__stats {
+                    box-sizing: border-box;
+                    margin: 5px 0;
+                    margin-bottom: 5px;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .resultPlayerCard__stats__p {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .resultButton {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        .resultButton__btn {
+            @include flexCenterColumn;
+            outline: none;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+            border: none;
+            cursor: pointer;
+
+            .resultButton__btn__i {
+                @include flexCenter;
+                box-sizing: border-box;
+                height: 70px;
+                width: 70px;
+                border-radius: 100%;
+                border: 2px solid $fontColor--1;
+                font-size: 38px;
+            }
+
+            .resultButton__btn__p {
+                margin-top: 5px;
+                font-weight: 700;
+            }
+        }
+
+        .resultButton__btn:hover {
+            .resultButton__btn__i {
+                background-color: $fontColor--1;
+                color: $color--1;
+            }
+        }
+    }
+}
+
+.endGame {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .endGame__h1 {
+        font-size: 30px;
+        font-weight: 300;
+        margin-top: 100px;
+    }
+
+    .endGameButtons {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        padding-bottom: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        
+        .endGameButtons__btn {
+            @include flexCenterColumn;
+            outline: none;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+            border: none;
+            cursor: pointer;
+
+            .endGameButtons__btn__i {
+                @include flexCenter;
+                box-sizing: border-box;
+                height: 70px;
+                width: 70px;
+                border-radius: 100%;
+                border: 2px solid $fontColor--1;
+                background-color: $fontColor--1;
+                color: $color--1;
+                font-size: 38px;
+            }
+
+            .endGameButtons__btn__p {
+                margin-top: 5px;
+                font-weight: 700;
+            }
+        }
+
+        .endGameButtons__btn:hover {
+            .endGameButtons__btn__i {
+                background-color: transparent;
+                color: $fontColor--1;
+            }
+        }
+    }
+}
+
+.topPage {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    width: 100vw;
+
+    .topPageContent {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+    }
+}
+
+.content {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    max-width: 700px;
+    padding-top: $navbarHeight;
+
+    .home {
+        @include flexCenterColumn;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+
+        .homeBtn {
+            outline: none;
+            box-sizing: border-box;
+            cursor: pointer;
+
+            .homeBtn__i {
+                @include flexCenter;
+                box-sizing: border-box;
+                height: 150px;
+                width: 150px;
+                border-radius: 100px;
+                border: 5px solid $fontColor--1;
+                font-size: 80px;
+            }
+
+            .homeBtn__p {
+                margin-top: 5px;
+                font-size: 20px;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+        .homeBtn:last-child {
+            margin-top: 50px;
+        }
+
+        .homeBtn:hover {
+            .homeBtn__i {
+                background-color: $fontColor--1;
+                color: $color--1;
+            }
+        }
+    }
+
+    .setup {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+
+        .setupForm {
+            @include flexCenterColumn;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+
+            .setupForm__h1 {
+                font-size: 30px;
+                font-weight: 700;
+                margin-bottom: 50px;
+            }
+
+            .setupGrp {
+                @include flexCenterColumn;
+                box-sizing: border-box;
+                height: fit-content;
+                width: 100%;
+                margin-bottom: 20px;
+
+                .setupGrp__label {
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+
+                .setupGrp__input {
+                    outline: none;
+                    box-sizing: border-box;
+                    height: fit-content;
+                    width: 300px;
+                    padding: 10px;
+                    border: 3px solid $fontColor--1;
+                    font-size: 20px;
+                    font-weight: 700;
+                    text-align: center;
+                }
+            }
+
+            .setupForm__btn {
+                outline: none;
+                box-sizing: border-box;
+                height: 100px;
+                width: 100px;
+                border-radius: 100px;
+                border: 3px solid $fontColor--1;
+                font-size: 20px;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .setupForm__btn:hover {
+                background-color: $fontColor--1;
+                color: $color--1;
+            }
+        }
+    }
+
+    .game {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 200px;
+
+        .gameWoodWorks, .gameBall {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr 230px;
+            align-items: center;
+
+            .gameWoodWorks__p, .gameBall__p {
+                font-size: 17px;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .gameWoodWorks__cards, .gameBall__card {
+                @include flexCenter;
+                box-sizing: border-box;
+                height: 90%;
+                width: 100%;
+
+                .gameBall__card__p {
+                    text-align: center;
+                }
+
+                .gameWoodWorks__cards__btn, .gameBall__card__btn {
+                    @include flexCenterColumn;
+                    outline: none;
+                    box-sizing: border-box;
+                    height: 200px;
+                    width: 200px;
+                    padding-top: 10px;
+                    border-radius: 100px;
+                    border: 3px solid $fontColor--1;
+                    cursor: pointer;
+
+                    .gameWoodWorks__cards__btn__i, .gameBall__card__btn__i {
+                        font-size: 100px;
+                    }
+
+                    .gameWoodWorks__cards__btn__p, .gameBall__card__btn__p {
+                        margin-top: 10px;
+                        font-size: 30px;
+                    }
+                }
+
+                .gameWoodWorks__cards__btn:hover, .gameBall__card__btn:hover {
+                    background-color: $fontColor--1;
+
+                    .gameWoodWorks__cards__btn__i, .gameBall__card__btn__i {
+                        color: $color--1;
+                        background-color: transparent;
+                    }
+
+                    .gameWoodWorks__cards__btn__p, .gameBall__card__btn__p {
+                        color: $color--1;
+                        background-color: transparent;
+                    }
+                }
+
+                .gameCard {
+                    @include flexCenterColumn;
+                    box-sizing: border-box;
+                    height: 210px;
+                    width: 150px;
+                    margin: 5px;
+                    border-radius: 8px;
+                    border: 2px solid $fontColor--1;
+
+                    .gameCard__i {
+                        @include flexCenter;
+                        box-sizing: border-box;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 3px;
+                        background-color: transparent;
+                        font-size: 80px;
+                        cursor: pointer;
+                    }
+
+                    .gameCard__i:hover {
+                        background-color: $fontColor--1;
+                        color: $color--1;
+                    }
+
+                    .gameCard__div {
+                        box-sizing: border-box;
+                        height: 100%;
+                        width: 100%;
+                        padding: 5px 10px;
+                        background-color: white;
+                        display: grid;
+                        grid-template-rows: 70px 1fr;
+
+                        .gameCard__div__div {
+                            box-sizing: border-box;
+                            background-color: white;
+                            display: flex;
+                            align-items: center;
+
+                            .gameCard__div__div__p {
+                                font-size: 60px;
+                                font-family: $font--3;
+                                font-weight: 700;
+                                background-color: transparent;
+                                color: black;
+                            }
+
+                            .gameCard__div__div__i {
+                                font-size: 20px;
+                                color: black;
+                            }
+                        }
+
+                        .gameCard__div__i {
+                            box-sizing: border-box;
+                            margin: auto;
+                            background-color: transparent;
+                            font-size: 100px;
+                            color: black;
+                        }
+                    }
+
+                    .gameCard__div--pink {
+
+                        .gameCard__div__div {
+                            .gameCard__div__div__p {
+                                color: red;
+                            }
+                        }
+
+                        .gameCard__div__i {
+                            color: red;
+                        }
+                    }
+                }
+
+                .gameCard--disabled {
+                    background-color: lightgray;
+                }
+            }
+        }
+
+        .gamePanel {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr 1.5fr;
+
+            .gamePanelInfo {
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+                padding: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 5px;
+
+                .gamePanelInfoGrp {
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 8px;
+                    background-color: #FFFFFF50;
+                    display: grid;
+                    grid-template-rows: 1fr 1.5fr;
+                    align-items: center;
+
+                    .gamePanelInfoGrp__title {
+                        @include flexCenter;
+                        box-sizing: border-box;
+                        height: 100%;
+                        font-size: 13px;
+                        font-weight: 700;
+                        text-align: center;
+                        background-color: transparent;
+                    }
+
+                    .gamePanelInfoGrp__data {
+                        box-sizing: border-box;
+                        height: fit-content;
+                        width: 100%;
+                        padding: 8px 0;
+                        padding-bottom: 5px;
+                        border-radius: 3px;
+                        font-size: 15px;
+                        font-weight: 700;
+                        font-family: $font--1;
+                        text-align: center;
+                        color: $fontColor--1;
+                        background-color: transparent;
+                    }
+
+                    .gamePanelInfoGrp__data--player {
+                        padding: 0;
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            .gamePanelControl {
+
+                .gamePanelResult {
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    padding: 10px;
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
+                    align-items: center;
+                    grid-gap: 10px;
+
+                    .gamePanelResult__div {
+                        box-sizing: border-box;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 18px;
+                        border: 3px solid $fontColor--1;
+                        display: grid;
+                        grid-template-rows: 1.5fr 2fr;
+                        align-items: center;
+
+                        .gamePanelResult__div__p {
+                            @include flexCenter;
+                            box-sizing: border-box;
+                            height: 100%;
+                            width: 100%;
+                            margin: auto;
+                            border-radius: 100px;
+                            background-color: transparent;
+                            font-size: 25px;
+                            font-weight: 700;
+                        }
+
+                        .gamePanelResult__div__data {
+                            font-size: 25px;
+                            text-align: center;
+                            background-color: transparent;
+                        }
+                    }
+
+                    .gamePanelResult__div--win {
+                        border: 3px solid #aaf683;
+                        background-color: #aaf683;
+                       
+                        .gamePanelResult__div__p, .gamePanelResult__div__data {
+                            color: $color--1;
+                        }
+                    }
+
+                    .gamePanelResult__div--lose {
+                        background-color: red;
+
+                        .gamePanelResult__div__p, .gamePanelResult__div__data {
+                            color: $fontColor--1;
+                        }
+                    }
+
+                    .gamePanelResult__btn {
+                        outline: none;
+                        box-sizing: border-box;
+                        height: 90px;
+                        width: 90px;
+                        margin: auto;
+                        border-radius: 100px;
+                        border: 3px solid $fontColor--1;
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+
+                    .gamePanelResult__btn:hover {
+                        background-color: $fontColor--1;
+                        color: $color--1;
+                    }
+                }
+
+                .gamePanelControl__step {
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 100%;
+                    padding: 10px;
+                    display: grid;
+                    grid-template-columns: 1fr 3fr;
+                    align-items: center;
+                    
+                    .gamePanelControl__step__number {
+                        @include flexCenter;
+                        box-sizing: border-box;
+                        height: 80px;
+                        width: 80px;
+                        margin: auto;
+                        border-radius: 100px;
+                        border: 3px solid $fontColor--1;
+                        font-size: 50px;
+                        font-family: $font--2;
+                    }
+
+                    .gamePanelControl__step__p {
+                        text-align: center;
+                    }
+
+                    .gamePanelBet {
+                        box-sizing: border-box;
+                        height: 100%;
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 5px;
+                        display: grid;
+                        grid-template-columns: 2fr 1fr;
+
+                        .gamePanelBet__input {
+                            outline: none;
+                            box-sizing: border-box;
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 18px 0 0 18px;
+                            border: none;
+                            background-color: $fontColor--1;
+                            font-size: 50px;
+                            font-family: $font--3;
+                            color: $color--1;
+                            text-align: center;
+                        }
+
+                        .gamePanelBet__btn {
+                            outline: none;
+                            box-sizing: border-box;
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 0 18px 18px 0;
+                            border: 2px solid $fontColor--1;
+                            font-size: 30px;
+                            letter-spacing: -3px;
+                            cursor: pointer;
+                        }
+
+                        .gamePanelBet__btn:hover {
+                            background-color: $fontColor--1;
+                            color: $color--1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
