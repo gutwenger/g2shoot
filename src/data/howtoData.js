@@ -37,10 +37,10 @@ export const HOW_TO_EN = [
         `Player gets one more card as "ball".`
     ],
     [
-        `If the value of ball is in between the woodworks, that means player wins, therefore player can win 1x of the amount he bet.`
+        `If the value of ball is in between the woodworks, that means player wins, therefore player can win 1x of the amount of the bet.`
     ],
     [
-        "If the value of ball is smaller or larger than the woodworks, that means player loses, therefore player loses the bet.", 
+        "If the value of ball is smaller or larger than the woodworks, that means player loses, therefore player loses 1x the amount of the bet.", 
     ],
     [
         `If the value of ball is exactly the same as one of the woodworks, that means player "hits the woodworks", as a result, player loses DOUBLE the amount of the bet.`
