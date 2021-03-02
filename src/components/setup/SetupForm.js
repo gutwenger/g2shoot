@@ -3,17 +3,20 @@ import React, { useRef } from 'react'
 import { SETUP_GAME_FORM } from "../../data/setupData";
 import SetupGrp from './SetupGrp';
 
+import { useLang } from "../../context/LangContext";
 import { useRoundFunctions } from "../../context/RoundContext";
 
 export const SetupForm = ({ createGame, changePage }) => {
 
     const { setupRound } = useRoundFunctions();
+    const { texts } = useLang();
 
     let formRef = useRef();
 
     let formItems = SETUP_GAME_FORM.map((item, i) => (
         <SetupGrp
             key={`setupgrp-${i}`}
+            label={ texts.setup[item.name] }
             item={item}
         />
     ))
@@ -35,11 +38,11 @@ export const SetupForm = ({ createGame, changePage }) => {
     return (
         <form className="setupForm" ref={formRef} onSubmit={(event)=>handleSubmit(event)}>
             <h1 className="setupForm__h1">
-                GAME SETUP
+                { texts.setup.gameSetup }
             </h1>
             { formItems }
             <button className="setupForm__btn">
-                START GAME
+                { texts.setup.startGame }
             </button>
         </form>
     )

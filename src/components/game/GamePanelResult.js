@@ -1,17 +1,19 @@
 import React from 'react';
 
+import { useLang } from "../../context/LangContext";
 import { useRound, useRoundFunctions } from "../../context/RoundContext"; 
 
 const GamePanelResult = ({ setTopPage }) => {
 
+    const { texts } = useLang();
     const { round, nextRound } = useRound();
     const { endRound } = useRoundFunctions();
 
     let result = round.result.result === "win"
-        ? "WIN"
+        ? texts.game.gamePanel.control.result.results.win
         : round.result.result === "loseSmall"
-            ? "LOSE"
-            : "LOSE (DOUBLE)";
+            ? texts.game.gamePanel.control.result.results.lose
+            : texts.game.gamePanel.control.result.results.loseDouble;
 
     let resultClass = round.result.result === "win"
         ? "gamePanelResult__div--win"
@@ -36,7 +38,7 @@ const GamePanelResult = ({ setTopPage }) => {
                 </p>
             </div>
             <button className="gamePanelResult__btn" onClick={()=>handleClick()}>
-                {nextRound ? "Next round" : "See result"}
+                {nextRound ? texts.game.gamePanel.control.result.nextRound : texts.game.gamePanel.control.result.seeResult }
             </button>
         </div>
     )

@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 
+import { useLang } from "../../context/LangContext";
 import { useGame } from "../../context/GameContext";
 import { useRound } from "../../context/RoundContext";
 import { useRoundFunctions } from "../../context/RoundContext";
 
 const GamePanelBet = () => {
 
+    const { texts } = useLang();
     const { game } = useGame();
     const { round } = useRound();
     const { placeBet } = useRoundFunctions();
@@ -33,7 +35,7 @@ const GamePanelBet = () => {
                 required
                 ref={betRef}
             />
-            <button type="submit" className="gamePanelBet__btn">BET</button>
+            <button type="submit" className="gamePanelBet__btn">{ texts.game.gamePanel.control.bet }</button>
         </form>
     )
 }

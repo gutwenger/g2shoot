@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useLang } from "../../context/LangContext";
 import { useGame } from "../../context/GameContext";
 import { useRound } from "../../context/RoundContext";
 
@@ -18,6 +19,7 @@ const GamePanelInfoGrp = ({ title, data }) => {
 
 const GamePanelInfo = () => {
 
+    const { texts } = useLang();
     const { game } = useGame();
     const { round } = useRound();
 
@@ -25,22 +27,22 @@ const GamePanelInfo = () => {
         <div className="gamePanelInfo">
             <GamePanelInfoGrp
                 key="gamePanelInfoGrp-player"
-                title="PLAYER"
+                title={ texts.game.gamePanel.info.player }
                 data={round.player.id}
             />
             <GamePanelInfoGrp
                 key="gamePanelInfoGrp-balance"
-                title="BALANCE"
+                title={ texts.game.gamePanel.info.balance }
                 data={round.player.balance}
             />
             <GamePanelInfoGrp
                 key="gamePanelInfoGrp-pool"
-                title="POOL"
+                title={ texts.game.gamePanel.info.pool }
                 data={game.pool}
             />
             <GamePanelInfoGrp
                 key="gamePanelInfoGrp-cards"
-                title="CARDS"
+                title={ texts.game.gamePanel.info.cards }
                 data={game.cardReserve.length}
             />
         </div>

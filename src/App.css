@@ -164,6 +164,7 @@ body {
   box-sizing: border-box;
   height: 80px;
   width: 100%;
+  padding: 0 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
@@ -693,6 +694,7 @@ body {
   color: #ff33a0;
 }
 .content .game .gamePanel .gamePanelControl .gamePanelResult .gamePanelResult__div--lose {
+  border: 3px solid red;
   background-color: red;
 }
 .content .game .gamePanel .gamePanelControl .gamePanelResult .gamePanelResult__div--lose .gamePanelResult__div__p, .content .game .gamePanel .gamePanelControl .gamePanelResult .gamePanelResult__div--lose .gamePanelResult__div__data {
@@ -774,6 +776,43 @@ body {
 .content .game .gamePanel .gamePanelControl .gamePanelControl__step .gamePanelBet .gamePanelBet__btn:hover {
   background-color: white;
   color: #ff33a0;
+}
+
+.howto {
+  overflow-y: scroll;
+}
+.howto .howto__h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.howto .howtocard {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.howto .howtocard .howtocard__step {
+  box-sizing: border-box;
+  height: 60px;
+  width: 60px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  border-radius: 100px;
+  border: 2px solid white;
+  font-size: 38px;
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.howto .howtocard .howtocard__con .howtocard__con__p {
+  text-align: center;
 }
 
 /*# sourceMappingURL=App.css.map */

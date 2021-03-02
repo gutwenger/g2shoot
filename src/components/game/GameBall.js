@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import GameCard from './GameCard';
 
+import { useLang } from "../../context/LangContext";
 import { useRound, useRoundFunctions } from "../../context/RoundContext";
 
 const GameBall = ({ stage }) => {
 
+    const { texts } = useLang();
     const { round } = useRound();
     const { getBall, getResult } = useRoundFunctions();
     const [clicked, setClicked] = useState(false);
@@ -34,7 +36,7 @@ const GameBall = ({ stage }) => {
                 <button className="gameBall__card__btn" onClick={()=>getBall()}>
                     <i className="gameBall__card__btn__i fas fa-hand-point-up" />
                     <p className="gameBall__card__btn__p">
-                        GET
+                        { texts.game.gameBall.get }
                     </p>
                 </button>
             </div>
@@ -44,14 +46,14 @@ const GameBall = ({ stage }) => {
         woodworks: (
             <div className="gameBall__card">
                 <p className="gameBall__card__p">
-                    You can get ball after placing bet.
+                    { texts.game.gameBall.afterPlacingBet }
                 </p>
             </div>
         ),
         bet: (
             <div className="gameBall__card">
                 <p className="gameBall__card__p">
-                    You can get ball after placing bet.
+                    { texts.game.gameBall.afterPlacingBet }
                 </p>
             </div>
         ),
@@ -71,7 +73,7 @@ const GameBall = ({ stage }) => {
     return (
         <div id="gameBall" className="gameBall">
             <p className="gameBall__p">
-                BALL
+                { texts.game.gameBall.title }
             </p>
             { display[stage] }
         </div>

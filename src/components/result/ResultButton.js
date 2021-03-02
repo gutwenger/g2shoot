@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { useLang } from "../../context/LangContext";
 import { useRound, useRoundFunctions } from "../../context/RoundContext";
 
 const ResultButton = ({ changePage, setTopPage, setNavIsOpen }) => {
 
+    const { texts } = useLang();
     const { nextRound } = useRound();
     const { endGame } = useRoundFunctions();
 
@@ -11,7 +13,7 @@ const ResultButton = ({ changePage, setTopPage, setNavIsOpen }) => {
         <button className="resultButton__btn" onClick={()=>handleResumeGame()}>
             <i className="resultButton__btn__i fas fa-undo-alt" />
             <p className="resultButton__btn__p">
-                RESUME
+                { texts.endGame.resume }
             </p>
         </button>
     )
@@ -41,7 +43,7 @@ const ResultButton = ({ changePage, setTopPage, setNavIsOpen }) => {
             <button className="resultButton__btn" onClick={()=>handleEndGame()}>
                 <i className="resultButton__btn__i fas fa-times" />
                 <p className="resultButton__btn__p">
-                    END GAME
+                    { texts.endGame.endGame }
                 </p>
             </button>
         </div>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { useLang } from "../../context/LangContext";
 import { useRoundFunctions } from '../../context/RoundContext';
 
 const EndGame = ({ changePage, setTopPage, setNavIsOpen }) => {
 
+    const { texts } = useLang();
     const { endGame } = useRoundFunctions();
 
     function handleResumeGame() {
@@ -20,19 +22,19 @@ const EndGame = ({ changePage, setTopPage, setNavIsOpen }) => {
     return (
         <div id="endGame" className="endGame">
             <h1 className="endGame__h1">
-                END GAME?
+                { texts.endGame.title }
             </h1>
             <div className="endGameButtons">
                 <button className="endGameButtons__btn" onClick={()=>handleResumeGame()}>
                     <i className="endGameButtons__btn__i fas fa-undo-alt" />
                     <p className="endGameButtons__btn__p">
-                        RESUME
+                        { texts.endGame.resume }
                     </p>
                 </button>
                 <button className="endGameButtons__btn" onClick={()=>handleEndGame()}>
                     <i className="endGameButtons__btn__i bi bi-box-arrow-right" />
                     <p className="endGameButtons__btn__p">
-                        END GAME
+                        { texts.endGame.endGame }
                     </p>
                 </button>
             </div>

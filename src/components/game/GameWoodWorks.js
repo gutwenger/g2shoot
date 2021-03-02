@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import GameCard from './GameCard';
 
+import { useLang } from "../../context/LangContext";
 import { useRound, useRoundFunctions } from "../../context/RoundContext";
 
 
 const GameWoodWorks = () => {
 
+    const { texts } = useLang();
     const { round } = useRound();
     const { setRound, getWoodworks } = useRoundFunctions();
     const [clicked, setClicked] = useState(new Set);
@@ -57,7 +59,7 @@ const GameWoodWorks = () => {
                 <button className="gameWoodWorks__cards__btn" onClick={()=>getWoodworks()}>
                     <i className="gameWoodWorks__cards__btn__i fas fa-hand-point-up" />
                     <p className="gameWoodWorks__cards__btn__p">
-                        GET
+                        { texts.game.gameWoodWorks.get }
                     </p>
                 </button>
             </div>
@@ -66,7 +68,7 @@ const GameWoodWorks = () => {
     return (
         <div id="gameWoodWorks" className="gameWoodWorks">
             <p className="gameWoodWorks__p">
-                WOODWORKS
+                { texts.game.gameWoodWorks.title }
             </p>
             { display }
         </div>

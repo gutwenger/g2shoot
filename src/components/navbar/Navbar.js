@@ -4,6 +4,7 @@ import NavMenu from "./NavMenu";
 
 const Navbar = ({ changePage, navIsOpen, setNavIsOpen, setTopPage }) => {
 
+
     let navBtnIcon = navIsOpen ? "navbarBtn__i fas fa-times" : "navbarBtn__i fas fa-bars";
 
     let navMenu = navIsOpen && (
