@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/g2shoot/static/css/main.349b49e9.chunk.css",
-    "main.js": "/g2shoot/static/js/main.3a08a7e2.chunk.js",
-    "main.js.map": "/g2shoot/static/js/main.3a08a7e2.chunk.js.map",
+    "main.js": "/g2shoot/static/js/main.0a84b0df.chunk.js",
+    "main.js.map": "/g2shoot/static/js/main.0a84b0df.chunk.js.map",
     "runtime-main.js": "/g2shoot/static/js/runtime-main.92225638.js",
     "runtime-main.js.map": "/g2shoot/static/js/runtime-main.92225638.js.map",
     "static/js/2.7851e0ee.chunk.js": "/g2shoot/static/js/2.7851e0ee.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.92225638.js",
     "static/js/2.7851e0ee.chunk.js",
     "static/css/main.349b49e9.chunk.css",
-    "static/js/main.3a08a7e2.chunk.js"
+    "static/js/main.0a84b0df.chunk.js"
   ]
 }
