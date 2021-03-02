@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/g2shoot/static/css/main.0cf96835.chunk.css",
-    "main.js": "/g2shoot/static/js/main.8b15cfe5.chunk.js",
-    "main.js.map": "/g2shoot/static/js/main.8b15cfe5.chunk.js.map",
+    "main.css": "/g2shoot/static/css/main.d586a1f0.chunk.css",
+    "main.js": "/g2shoot/static/js/main.c04125b4.chunk.js",
+    "main.js.map": "/g2shoot/static/js/main.c04125b4.chunk.js.map",
     "runtime-main.js": "/g2shoot/static/js/runtime-main.92225638.js",
     "runtime-main.js.map": "/g2shoot/static/js/runtime-main.92225638.js.map",
     "static/js/2.7851e0ee.chunk.js": "/g2shoot/static/js/2.7851e0ee.chunk.js",
     "static/js/2.7851e0ee.chunk.js.map": "/g2shoot/static/js/2.7851e0ee.chunk.js.map",
     "index.html": "/g2shoot/index.html",
-    "static/css/main.0cf96835.chunk.css.map": "/g2shoot/static/css/main.0cf96835.chunk.css.map",
+    "static/css/main.d586a1f0.chunk.css.map": "/g2shoot/static/css/main.d586a1f0.chunk.css.map",
     "static/js/2.7851e0ee.chunk.js.LICENSE.txt": "/g2shoot/static/js/2.7851e0ee.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.92225638.js",
     "static/js/2.7851e0ee.chunk.js",
-    "static/css/main.0cf96835.chunk.css",
-    "static/js/main.8b15cfe5.chunk.js"
+    "static/css/main.d586a1f0.chunk.css",
+    "static/js/main.c04125b4.chunk.js"
   ]
 }
